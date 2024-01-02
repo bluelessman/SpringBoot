@@ -1,0 +1,16 @@
+package edu.pnu.Domain;
+
+import java.util.Date;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.Data;
+
+@RestController
+@Data
+public class MemberVO {
+	private int id;
+	private String pass;
+	private String name;
+	private Date regidate;
+}
