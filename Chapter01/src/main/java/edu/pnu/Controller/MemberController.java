@@ -29,6 +29,14 @@ public class MemberController {
 	}
 	
 	
+//	private MemberVO isExistMember(MemberVO member) {
+//		for (MemberVO memberVO : list) {
+//			if(member.getId()==memberVO.getId()) {
+//				return memberVO;
+//			}
+//		}
+//		return null;
+//	}
 	
 	@GetMapping("/member")
 	public List<MemberVO> getMembers(){
@@ -36,7 +44,7 @@ public class MemberController {
 	}
 	
 	@GetMapping("/member/{id}")
-	public MemberVO getMethodName(@PathVariable("id") Integer id) {
+	public MemberVO getMember(@PathVariable("id") Integer id) {
 		for (MemberVO memberVO : list) {
 			if(id==memberVO.getId()) {
 				return memberVO;
@@ -58,15 +66,8 @@ public class MemberController {
 		return 1;
 	}
 	
+	
 	@PostMapping("/memberJSON")
-	private MemberVO isExistMember(MemberVO member) {
-		for (MemberVO memberVO : list) {
-			if(member.getId()==memberVO.getId()) {
-				return memberVO;
-			}
-		}
-		return null;
-	}
 	public int addMemberJSON(@RequestBody MemberVO member) {
 		member.setRegidate(new Date());
 		for (MemberVO memberVO : list) {
@@ -78,6 +79,7 @@ public class MemberController {
 		list.add(member);
 		return 1;
 	}
+	
 	@PutMapping("/member")
 	public int updateMembers(MemberVO member) {
 		for (MemberVO memberVO : list) {
